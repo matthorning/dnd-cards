@@ -1,0 +1,16 @@
+{
+  "name": "dnd-cards",
+  "version": "1.0.0",
+  "description": "A collection of cards to be used while playing D&D 5e",
+  "repository": "https://github.com/matthorning/dnd-cards",
+  "author": "Matt Horning",
+  "devDependencies": {
+    "gulp": "github:gulpjs/gulp#4.0",
+    "gulp-autoprefixer": "^4.0.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.6.1",
+    "gulp-uglify": "^3.0.0",
+    "pump": "^1.0.2"
+  }
+}
