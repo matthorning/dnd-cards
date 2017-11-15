@@ -5,3 +5,30 @@
     outline: none;
   }
 }
+
+html {
+  font-family: $futura;
+  line-height: 1.6;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  &:after {
+    background-image: url('../src/images/skulls.svg');
+    background-repeat: repeat;
+    content: '';
+    display: block;
+    height: 100%;
+    left: 0;
+    opacity: 0.03;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: -1;
+  }
+}
+
+h1, h2, h3, h4, h5, p, span, li {
+  color: $darkgrey;
+}
