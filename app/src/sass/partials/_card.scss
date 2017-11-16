@@ -51,16 +51,21 @@
   font-size: 28px;
 }
 
+.card-grid .card .row .row--bottom__cr span.spell-level {
+  color: $lightgrey;
+  font-size: 22px;
+  padding: 4px 0;
+}
+
 .card-grid .card .row .row--bottom__type h3 {
   color: $lightgrey;
-  font-family: $futuramedium;
-  font-size: 28px;
+  font-size: 22px;
   font-weight: normal;
   margin: 0;
   text-transform: capitalize;
 }
 
-.card-grid .card .row .row--bottom__button .monster-select {
+.card-grid .card .row .row--bottom__button .card-select {
   background-color: $orange;
   color: $darkgrey;
   display: block;

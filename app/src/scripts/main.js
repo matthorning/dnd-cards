@@ -28,7 +28,7 @@ function renderMonsterCard(monster) {
         <h3 class="monster-type">${monster.type}</h3>
       </div>
       <div class="row--bottom__button">
-        <a href="#" class="monster-select">Select</a>
+        <a href="#" class="card-select">Select</a>
       </div>
     </div>
   `;
@@ -39,7 +39,7 @@ function renderMonsterCard(monster) {
 function renderSpellCard(spell) {
   const spellCard = `
     <div class="row">
-      <h2 class="monster-name">${spell.name}</h2>
+      <h2 class="spell-name">${spell.name}</h2>
       <div class="row--top__icon">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-labelledby="title" aria-describedby="desc" role="img" xmlns:xlink="http://www.w3.org/1999/xlink">
           <path class="sclera" data-name="layer2" d="M32 14.5C14.8 14.5 2.5 32 2.5 32S14.8 49.5 32 49.5 61.5 32 61.5 32 49.2 14.5 32 14.5z" fill="none" stroke="#202020" stroke-miterlimit="10" stroke-width="2" stroke-linejoin="miter" stroke-linecap="round"></path>
@@ -50,13 +50,13 @@ function renderSpellCard(spell) {
     </div>
     <div class="row">
       <div class="row--bottom__cr">
-        <span class="challenge-rating">${spell.level}</span>
+        <span class="spell-level">${spell.level}</span>
       </div>
       <div class="row--bottom__type">
-        <h3 class="monster-type">${spell.school}</h3>
+        <h3 class="spell-school">${spell.school}</h3>
       </div>
       <div class="row--bottom__button">
-        <a href="#" class="monster-select">Select</a>
+        <a href="#" class="card-select">Select</a>
       </div>
     </div>
   `;
@@ -66,7 +66,7 @@ function renderSpellCard(spell) {
 
 function buildMonsterGrid(cards) {
   const cardContainer = document.querySelector('.card-grid');
-
+  clearGrid();
   cards.forEach(function(card, i) {
     const currCard = renderMonsterCard(card);
 
@@ -79,7 +79,7 @@ function buildMonsterGrid(cards) {
 
 function buildSpellGrid(cards) {
   const cardContainer = document.querySelector('.card-grid');
-
+  clearGrid();
   cards.forEach(function(card, i) {
     const currCard = renderSpellCard(card);
 
@@ -90,8 +90,9 @@ function buildSpellGrid(cards) {
   });
 }
 
-function ready() {
-  if (document.querySelector('header nav ul li:first-child').classList.contains('active')) {
+function initGrid() {
+  let navCheck = document.querySelector('header nav ul li.active a').innerHTML;
+  if (navCheck == 'Monsters') {
     buildMonsterGrid(monsters);
   }
   else {
@@ -99,8 +100,32 @@ function ready() {
   }
 }
 
+function clearGrid() {
+  const cardContainer = document.querySelector('.card-grid');
+  cardContainer.innerHTML = '';
+}
+
+function initNav() {
+  const navItems = document.querySelectorAll('header nav ul li');
+  
+  Array.prototype.forEach.call(navItems, function(el) {
+    el.addEventListener('click', function() {
+      document.querySelector('.active').classList.remove('active');
+      this.classList.add('active');
+
+      // Hmmm...
+      initGrid();
+    });
+  });
+}
+
+function ready() {
+  initNav();
+  initGrid();
+}
+
 if (document.readyState !== 'loading') {
-  ready()
+  ready();
 } else {
-  document.addEventListener('DOMContentLoaded', ready)
+  document.addEventListener('DOMContentLoaded', ready);
 }
