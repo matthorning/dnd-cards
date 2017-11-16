@@ -1,0 +1,20 @@
+aside {
+  background-color: white;
+  border-left: 1px solid $lightgrey;
+}
+
+aside .card-details {
+  position: relative;
+}
+
+aside .card-details .card-details__close {
+  cursor: pointer;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+
+aside .card-details .card-details__close svg {
+  height: 28px;
+  width: 28px;
+}

@@ -1,3 +1,31 @@
+body {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+body header {
+  flex-basis: 100%;
+}
+
+body main {
+  flex-basis: 100%;
+  height: calc(100vh - 117px);
+  overflow-y: scroll;
+}
+
+body aside {
+  flex-basis: 40%;
+  display: none;
+}
+
+body.card-active main {
+  flex-basis: 60%;
+}
+
+body.card-active aside {
+  display: block;
+}
+
 .card-grid {
   align-items: center;
   display: flex;
@@ -9,6 +37,10 @@
 .card-grid .card {
   flex-basis: 32%;
   margin-bottom: 40px;
+}
+
+body.card-active .card-grid .card {
+  flex-basis: 49%;
 }
 
 .card-grid .card .row {

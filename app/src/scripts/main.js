@@ -98,6 +98,22 @@ function initGrid() {
   else {
     buildSpellGrid(spells);
   }
+  initCardSelect();
+}
+
+function initCardSelect() {
+  const cards = document.querySelectorAll('.card');
+
+  Array.prototype.forEach.call(cards, function(el) {
+    el.addEventListener('click', function() {
+      const activeCard = document.querySelector('.card.active');
+      if (activeCard) {
+        activeCard.classList.remove('active');
+      }
+      this.classList.add('active');
+      document.body.classList.add('card-active');
+    });
+  });
 }
 
 function clearGrid() {
@@ -122,6 +138,11 @@ function initNav() {
 function ready() {
   initNav();
   initGrid();
+
+  const detailsCloseBtn = document.querySelector('.card-details__close');
+  detailsCloseBtn.addEventListener('click', function(el) {
+    document.body.classList.remove('card-active');
+  });
 }
 
 if (document.readyState !== 'loading') {
