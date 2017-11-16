@@ -1,4 +1,5 @@
 var autoprefixer = require('gulp-autoprefixer');
+var babel = require('gulp-babel');
 var gulp = require('gulp');
 var pump = require('pump');
 var sass = require('gulp-sass');
@@ -29,6 +30,7 @@ gulp.task('styles:watch', function () {
 gulp.task('compress', function (cb) {
   pump([
       gulp.src('./src/scripts/*.js'),
+      babel({ presets: ['es2015'] }),
       uglify(),
       gulp.dest('./dist')
     ],
@@ -44,6 +46,8 @@ gulp.task('compress:watch', function () {
 // --------------------- Watch parent
 gulp.task('watch', gulp.parallel('styles:watch', 'compress:watch'));
 
+// --------------------- Build without watch
+gulp.task('build', gulp.series('styles', 'compress'));
 
 // --------------------- Default task
 gulp.task('default', gulp.series('styles', 'compress', 'watch'));

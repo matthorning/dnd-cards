@@ -8,6 +8,7 @@
 
 .card-grid .card {
   flex-basis: 32%;
+  margin-bottom: 40px;
 }
 
 .card-grid .card .row {
@@ -24,74 +25,4 @@
       padding: 10px;
     }
   }
-}
-
-.card-grid .card .row h2 {
-  margin: 0;
-}
-
-.card-grid .card .row .row--top__icon {
-  cursor: pointer;
-  &:hover,
-  &:focus {
-    svg .iris {
-      fill: $green;
-    }
-    svg .sclera {
-      fill: $white;
-    }
-  }
-}
-
-.card-grid .card .row .row--top__icon svg {
-  width: 36px;
-  .iris {
-    fill: transparent;
-    transition: fill 200ms ease;
-  }
-  .sclera {
-    fill: transparent;
-    transition: fill 200ms ease;
-  }
-}
-
-.card-grid .card .row .row--bottom__cr {
-  align-items: center;
-  border-right: 1px solid $lightgrey;
-  display: flex;
-  svg circle,
-  svg path {
-    stroke: white;
-    stroke-width: 3;
-  }
-  span {
-    color: $lightgrey;
-  }
-}
-
-.card-grid .card .row .row--bottom__cr svg {
-  height: 24px;
-  width: 24px;
-}
-
-.card-grid .card .row .row--bottom__cr span {
-  color: $lightgrey;
-  font-size: 28px;
-}
-
-.card-grid .card .row .row--bottom__type h3 {
-  color: $lightgrey;
-  font-family: $futuramedium;
-  font-size: 28px;
-  font-weight: normal;
-  margin: 0;
-}
-
-.card-grid .card .row .row--bottom__button .monster-select {
-  background-color: $orange;
-  color: $darkgrey;
-  display: block;
-  line-height: 64px;
-  padding: 0 24px;
-  text-decoration: none;
 }
